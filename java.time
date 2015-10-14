@@ -1,0 +1,24 @@
+import java.time.*;
+import java.util.Scanner;
+public class Time {
+
+	public static void main(String[] args) {
+		
+		// TODO Auto-generated method stub
+		int a;
+		final Instant instant = Instant.parse("2015-04-03T00:00:00Z");
+		final ZoneId zoneidDefault = ZoneId.systemDefault();
+		final LocalDateTime currentPoint = LocalDateTime.now(); //直接使用LocalDateTime類別來取得日期與時間
+		Scanner input = new Scanner(System.in);
+		System.out.println("The current time is "+currentPoint);
+		System.out.println(zoneidDefault);
+		System.out.println("\n\n\nThe defined time is "+ instant);
+		System.out.println("Please enter how long do you want to sleep(minute): ");
+		a = input.nextInt();
+		final Duration duration = Duration.ofMinutes(a);
+		final Instant newInstant = instant.plus(duration);
+		System.out.println("Now you wakeup the time is "+newInstant);
+		
+	}
+
+}
